@@ -13,9 +13,9 @@ def DSelect(a, i):
         - ith order element of array a
     """
 
-    assert(i < len(a) + 1)
-    assert(i > 0)
-    assert(len(a) > 0)
+    assert i < len(a) + 1
+    assert i > 0
+    assert len(a) > 0
 
     if len(a) < 2:
         return a[0]

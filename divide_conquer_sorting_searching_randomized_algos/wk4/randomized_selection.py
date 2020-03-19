@@ -13,28 +13,30 @@ def randomized_selection(a, x, l, r):
     returns:
         - xth order statisic of array a[l, r]
     """
-
+    assert x > 0
     assert x <= len(a[l:r])  # cannot look for element outside array
 
     # base case
     if len(a[l:r]) < 2:
-        return a[l:r]
+        return a[l:r][0]
 
     pivot_index = partition(a, l, r)
 
-    if pivot_index == x:  # if 1st pivot selected == x... unlikely
-        return a[x]
+    if pivot_index + 1 == x:  # if 1st pivot selected == x... unlikely
+        return a[pivot_index]
 
-    elif pivot_index <= x + l:  # x is to the right of pivot
-        if pivot_index == x + l:
+    elif pivot_index + 1 <= x:  # x is to the right of pivot
+        if pivot_index + 1 == x:
             return a[pivot_index]
         else:
-            randomized_selection(a, (x - (pivot_index + 1)), pivot_index + 1, r)
+            new_x = x - (pivot_index + 1)
+            new_l = pivot_index + 1
+            return randomized_selection(a, new_x, new_l, r)
 
     else:  # x is to the left of pivot
-        randomized_selection(a, x, l, pivot_index)
+        return randomized_selection(a, x, l, pivot_index)
 
-    return a[x]
+    return
 
 
 def partition(a, l, r):
@@ -69,10 +71,49 @@ def partition(a, l, r):
 # print(randomized_selection(a, x, 0, len(a)))
 
 
-a = [2, 7, 3, 15, 4, 14, 8, 13, 9, 5, 0, 1, 6, 10, 11, 12]
+a = [2, 7, 3, 15, 4, 14, 8, 13, 9, 5, 16, 1, 6, 10, 11, 12]
 
-for i in range(0, 15):
-    for j in range(0, 10000):
-        res = randomized_selection(a, i, 0, len(a))
-        if res != i:
-            print("ERROR... x={}, res={}".format(i, res))
+
+i = 1
+
+for j in range(1, 15):
+    res = randomized_selection(a, j, 0, len(a))
+    if res != j:
+        print("ERROR")
+        print("j: {}, result: {}".format(j, res))
+        break
+
+print("done")
+
+# for i in range(1, 16):
+#     for j in range(0, 1000):
+#         res = randomized_selection(a, i, 0, len(a))
+#         if res != i:
+#             print("ERROR... x={}, res={}".format(i, res))
+
+
+def test_randomized_selection(sizes, trials):
+
+    for size in sizes:
+        a = []
+
+        for i in range(1, size + 1):
+            a.append(i)
+
+        random.shuffle(a)
+
+        for j in range(1, size + 1):
+            for n in range(trials):
+
+                result = randomized_selection(a, j, 0, len(a))
+                if result != j:
+                    print("ERROR")
+                    print("size: {}, j: {}, result: {}".format(size, j, result))
+
+    print("Test complete. No errors found.")
+
+
+sizes = [3, 12, 21, 40]
+trials = 5
+
+# test_randomized_selection(sizes, trials)
