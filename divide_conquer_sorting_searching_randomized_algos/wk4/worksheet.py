@@ -26,6 +26,34 @@ def test_DSelect(sizes):
 test_DSelect(sizes)
 
 
+# ###### Testing randomized_selection ###
+# x = 1
+# print(randomized_selection(a, x, 0, len(a)))
+
+
+# b = [6, 7, 8, 9, 10]
+# c = randomized_selection(b, 5, 0, len(b))
+
+#
+
+
+# a = [2, 7, 3, 15, 4, 14, 8, 13, 9, 5, 16, 1, 6, 10, 11, 12]
+# a = [1, 2, 3, 4, 5]
+# for j in range(1, 16):
+#     res = randomized_selection(a, j, 0, len(a))
+#     if res != j:
+#         print("ERROR")
+#         print("j: {}, result: {}".format(j, res))
+#         break
+
+# print("done")
+
+# for i in range(1, 16):
+#     for j in range(0, 1000):
+#         res = randomized_selection(a, i, 0, len(a))
+#         if res != i:
+#             print("ERROR... x={}, res={}".format(i, res))
+
 #
 # a = []
 # for i in range(6, 11):

@@ -22,21 +22,17 @@ def randomized_selection(a, x, l, r):
 
     pivot_index = partition(a, l, r)
 
-    if pivot_index + 1 == x:  # if 1st pivot selected == x... unlikely
+    if pivot_index + 1 == x + l:
         return a[pivot_index]
 
-    elif pivot_index + 1 <= x:  # x is to the right of pivot
-        if pivot_index + 1 == x:
-            return a[pivot_index]
-        else:
-            new_x = x - (pivot_index + 1)
-            new_l = pivot_index + 1
-            return randomized_selection(a, new_x, new_l, r)
+    elif pivot_index + 1 < x + l:  # x is to the right of pivot
+        new_x = (x + l) - (pivot_index + 1)
+        new_l = pivot_index + 1
+        return randomized_selection(a, new_x, new_l, r)
 
     else:  # x is to the left of pivot
+        # new_r = pivot_index + l
         return randomized_selection(a, x, l, pivot_index)
-
-    return
 
 
 def partition(a, l, r):
@@ -67,29 +63,6 @@ def partition(a, l, r):
     return pivot_final_index
 
 # --------------------- TESTING ----------------------------
-# x = 1
-# print(randomized_selection(a, x, 0, len(a)))
-
-
-a = [2, 7, 3, 15, 4, 14, 8, 13, 9, 5, 16, 1, 6, 10, 11, 12]
-
-
-i = 1
-
-for j in range(1, 15):
-    res = randomized_selection(a, j, 0, len(a))
-    if res != j:
-        print("ERROR")
-        print("j: {}, result: {}".format(j, res))
-        break
-
-print("done")
-
-# for i in range(1, 16):
-#     for j in range(0, 1000):
-#         res = randomized_selection(a, i, 0, len(a))
-#         if res != i:
-#             print("ERROR... x={}, res={}".format(i, res))
 
 
 def test_randomized_selection(sizes, trials):
@@ -104,7 +77,6 @@ def test_randomized_selection(sizes, trials):
 
         for j in range(1, size + 1):
             for n in range(trials):
-
                 result = randomized_selection(a, j, 0, len(a))
                 if result != j:
                     print("ERROR")
@@ -113,7 +85,7 @@ def test_randomized_selection(sizes, trials):
     print("Test complete. No errors found.")
 
 
-sizes = [3, 12, 21, 40]
-trials = 5
+sizes = [3, 12, 21, 40, 81, 100, 333]
+trials = 10
 
-# test_randomized_selection(sizes, trials)
+test_randomized_selection(sizes, trials)
