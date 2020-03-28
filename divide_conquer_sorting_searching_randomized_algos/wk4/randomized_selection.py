@@ -3,7 +3,7 @@ import random
 
 def randomized_selection(a, x, l, r):
     """
-    finds the xth order element in array a.
+    finds the xth order element in array a. Operates in-place.
 
     args:
         - a an array of numbers
