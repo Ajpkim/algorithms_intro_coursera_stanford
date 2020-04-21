@@ -1,7 +1,7 @@
 # FAILING TEST CASES
 
 
-def dijkstra(g, s):
+def naive_dijkstra(g, s):
     """
     Computes single source shortest-paths for a directed graph with no negative edge weights 
 
@@ -71,7 +71,7 @@ def load_graph_adjacency_list(filename):
 def main():
     filename = 'dijkstraData_adjacencyList.txt'
     g = load_graph_adjacency_list(filename)
-    shortest_paths = dijkstra(g, '1')
+    shortest_paths = naive_dijkstra(g, '1')
     print(shortest_paths)
 
 

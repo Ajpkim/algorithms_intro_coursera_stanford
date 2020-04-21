@@ -1,4 +1,5 @@
 import random
+import sys
 # Going to implement own heap class to consolidate understanding
 
 
@@ -9,7 +10,7 @@ class MinHeap():
         self.heap = self.build_min_heap(x) if x else []
 
     def build_min_heap(self, x):
-        "build a min heap from scratch containing the elements in x"
+        "build a min heap with the elements from given list x"
         self.heap = []
         for e in x:
             self.insert(e)
@@ -41,6 +42,7 @@ class MinHeap():
         while idx > 0:
             parent_idx = self._parent(idx)
             parent = self.heap[parent_idx]
+
             if e < parent:
                 self._swap(idx, parent_idx)
                 idx = parent_idx
@@ -68,40 +70,6 @@ class MinHeap():
 
         self.heap[idx] = e
         self._bubbleup(idx)
-
-        # implementation with no bubbling up afterwards
-        # e = self.heap[idx]
-
-        # while self._left_child(idx):
-        #     left_idx = self._left_child(idx)
-        #     left_child = self.heap[left_idx]
-
-        #     if self._right_child(idx):
-        #         right_idx = self._right_child(idx)
-        #         right_child = self.heap[right_idx]
-
-        #         if e > left_child and e > right_child:
-        #             self.heap[idx] = min(left_child, right_child)
-        #             self.heap[left_idx] = max(left_child, right_child)
-        #             idx = right_idx
-        #             continue
-
-        #         if e > left_child and e < right_child:
-        #             self.heap[idx] = left_child
-        #             self.heap[left_child] = e
-        #             idx = left_idx
-        #             continue
-
-        #         if e < left_child and e < right_child:
-        #             return
-
-        #     else:  # no right child
-        #         if e > left_child:
-        #             self.heap[idx] = left_child
-        #             idx = left_idx
-        #             continue
-        #         else:
-        #             return
 
     def _swap(self, i, j):
         "swap 2 elements in the heap"
@@ -183,9 +151,11 @@ def run_tests(size, min, max, num):
     print("Done.")
 
 
+# # TESTING HEAP
 size = 100
 min = -300
 max = 300
 num = 500
 
-run_tests(size, min, max, num)
+if __name__ == '__main__':
+    run_tests(size, min, max, num)
