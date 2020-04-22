@@ -49,7 +49,7 @@ class MinHeap():
                 continue
             break
 
-        self.heap[idx] = e
+        self.heap[idx] = e  # unnecessary
 
     def _bubbledown(self, idx):
         "Maintain heap invariant by sifting element at idx down to a leaf and then up to a legal position"
@@ -159,3 +159,5 @@ num = 500
 
 if __name__ == '__main__':
     run_tests(size, min, max, num)
+    # heap = MinHeap([47, 39, 2, 36, 5, 49, 31, 13, 9, 28])
+    # test_heap_invariant(heap)
