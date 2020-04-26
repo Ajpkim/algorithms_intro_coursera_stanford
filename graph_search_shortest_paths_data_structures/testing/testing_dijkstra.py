@@ -1,5 +1,4 @@
-from heap_dijkstra import dijkstra
-from naive_dijkstra import naive_dijkstra
+from dijkstra import dijkstra
 
 # Shell command from course dir:
 # python tester_modified.py graph_search_shortest_paths_data_structures/dijkstra/testing_dijkstra.py graph_search_shortest_paths_data_structures/dijkstra/test_cases/ name=dijkstra_test_wrapper

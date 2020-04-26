@@ -1,5 +1,4 @@
 import heap  # list methods
-from min_heap import MinHeap  # class based implementation
 
 
 def dijkstra(filename, source_node):
@@ -26,34 +25,6 @@ def dijkstra(filename, source_node):
             heap.minheap_push(minheap, (potential_path_dist, adjacent_node))
 
     return distances
-
-# # ---------------------------------------------------------------------------------
-
-
-# # implementation using heap CLASS
-# def dijkstra(filename, s):
-#     # graph rep: {source: [(dest, weight)]})
-#     graph = load_graph_adjacency_list(filename)
-
-#     distances = {}
-#     h = MinHeap([(0, s)])  # need to initialize MinHeap with list of elements
-
-#     while h.heap:
-
-#         distance, node = h.extract_min()
-
-#         if node in distances:
-#             continue  # Already processed this node
-
-#         distances[node] = distance  # Process node
-
-#         for edge in graph[node]:  # Update all adjacent nodes
-#             adjacent_node = edge[0]
-#             potential_path_dist = edge[1] + distance
-#             # add to heap (nodes can be added multiple times, will only be processed once)
-#             h.insert((potential_path_dist, adjacent_node))
-
-#     return distances
 
 
 def load_graph_adjacency_list(filename):
