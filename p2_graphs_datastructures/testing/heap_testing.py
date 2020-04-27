@@ -1,6 +1,8 @@
-import random
+import copy
 import heapq
-from heap import *
+import random
+
+from p2_graphs_datastructures.data_structures.heap import *
 
 
 def test_minheap(minheap):
@@ -133,11 +135,18 @@ def run_tests(heap_type, size, low, high, num):
 
 
 # # TESTING HEAP
-heap_type = 'max'
-size = 100
-low = -100
-high = 100
-num = 100
+# heap_type = 'max'
+# size = 100
+# low = -100
+# high = 100
+# num = 100
+
+
+def test_heap(heap_type='min', size=100, low=-100, high=100, num=100):
+    print(
+        f'Testing {heap_type}heap {num} times with {size} elements between [{low}:{high}].')
+    run_tests(heap_type, size, low, high, num)
+
 
 if __name__ == '__main__':
-    run_tests(heap_type, size, low, high, num)
+    pass

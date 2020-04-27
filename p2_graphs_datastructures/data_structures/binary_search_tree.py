@@ -291,38 +291,5 @@ class BST():
         return s
 
 
-def check_bst_property(bst):
-    data_elements = bst.ordered()
-    for data in data_elements:
-        node = bst.search(data)
-
-        if node.parent:
-            if node == node.parent.left:
-                assert node <= node.parent
-
-            if node == node.parent.right:
-                assert node > node.parent
-
-        if node.left:
-            assert node >= node.left
-
-        if node.right:
-            assert node < node.right
-
-
-def test_bst(num, size, smallest, largest):
-    print('Testing Binary Search Tree')
-    print(f'{num} trials with {size} elements [{smallest}:{largest}]')
-    for n in range(num):
-        bst = BST([random.randint(smallest, largest) for i in range(size)])
-        check_bst_property(bst)
-    print('Passed Test')
-
-
-num = 100
-size = 3100
-smallest = -1000
-largest = 1000
-
 if __name__ == '__main__':
-    test_bst(num, size, smallest, largest)
+    pass

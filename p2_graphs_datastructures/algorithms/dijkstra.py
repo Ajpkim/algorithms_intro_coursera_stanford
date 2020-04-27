@@ -1,4 +1,4 @@
-import heap  # list methods
+from p2_graphs_datastructures.data_structures import heap
 
 
 def dijkstra(filename, source_node):
@@ -47,8 +47,5 @@ def load_graph_adjacency_list(filename):
     return graph
 
 
-# filename = "dijkstraData_adjacencyList.txt"
-filename = "test_cases/input_random_1_4.txt"
 if __name__ == '__main__':
-    shortest_paths = dijkstra(filename, '1')
-    print(shortest_paths)
+    pass

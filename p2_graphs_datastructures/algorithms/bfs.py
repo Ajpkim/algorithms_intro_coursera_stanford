@@ -12,7 +12,6 @@ def generic_bfs(graph, s):
     Returns:
         - list of explored nodes throughout search of graph
     """
-
     explored_nodes = [s]
     que = queue.Queue()
 
@@ -32,5 +31,8 @@ def generic_bfs(graph, s):
 graph = {'a': ['b', 'c'], 'b': ['a', 'd'], 'c': ['a', 'd'], 'd': ['c', 'b', 'f'],
          'e': ['i', 'g'], 'f': ['d', 'h'], 'g': ['e', 'i'], 'h': ['f'], 'i': ['e', 'g']}
 
-res = generic_bfs(graph, 'a')
-print(res)
+if __name__ == '__main__':
+    pass
+    # no longer running algo files directly
+    # res = generic_bfs(graph, 'a')
+    # print(res)

@@ -1,7 +1,5 @@
 from random import randint
 
-# Merge Sort implementation
-
 
 def create_array(size, max):
     return [randint(0, max) for _ in range(size)]

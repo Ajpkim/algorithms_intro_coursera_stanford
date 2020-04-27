@@ -1,6 +1,6 @@
 import random
-import queue
-from binary_search_tree import BST, Node
+
+from p2_graphs_datastructures.data_structures.binary_search_tree import BST, Node
 
 
 def check_bst_property(bst):
@@ -21,11 +21,29 @@ def check_bst_property(bst):
         if node.right:
             assert node < node.right
 
-    print('No Errors Found.')
+
+def test_bst(num=100, size=100, smallest=-100, largest=100):
+    print('Testing Binary Search Tree')
+    print(f'{num} trials with {size} elements [{smallest}:{largest}]')
+    for n in range(num):
+        bst = BST([random.randint(smallest, largest) for i in range(size)])
+        check_bst_property(bst)
+    print('Passed Test')
 
 
-bst = BST([random.randint(0, 500) for i in range(100)])
-check_bst_property(bst)
+num = 100
+size = 100
+smallest = -1000
+largest = 1000
+
+if __name__ == '__main__':
+    pass
+
+# ################################################################################
+
+# bst = BST([random.randint(0, 500) for i in range(100)])
+# check_bst_property(bst)
+
 
 # x = [10, 25, 78, 12, 8, 99, 16, 74, 5, 0]
 # print(x)

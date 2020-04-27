@@ -1,7 +1,6 @@
-
-import random
 import copy
 import datetime
+import random
 import time
 
 
@@ -30,7 +29,8 @@ def karger_min_cut(graph):
     """
     while len(graph.keys()) > 2:
 
-        edges = [(node, adjacent) for node in graph for adjacent in graph[node]]
+        edges = [(node, adjacent)
+                 for node in graph for adjacent in graph[node]]
         random_edge = random.choice(edges)
 
         n1 = random_edge[0]

@@ -1,4 +1,5 @@
 import math
+
 from random import randint
 
 # Implementation of a divide and conquer algorithm to find the closest pair of
