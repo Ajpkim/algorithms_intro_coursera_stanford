@@ -1,4 +1,5 @@
 # Implementation of heap data structure using methods that operate on lists in-place
+# TODO add method for deleting from middle of heap
 
 
 def heapify_min(heap):
@@ -52,6 +53,26 @@ def minheap_push(heap, e):
 def maxheap_push(heap, e):
     heap.append(e)
     _bubble_up_max(heap, 0, len(heap)-1)
+
+
+def minheap_max_element(heap):
+    size = len(heap)
+    max_element = heap[size // 2]
+
+    for i in range(1 + (size // 2), size):
+        max_element = max(max_element, heap[i])
+
+    return max_element
+
+
+def maxheap_min_element(heap):
+    size = len(heap)
+    min_element = heap[size // 2]
+
+    for i in range(1 + (size//2), size):
+        min_element = min(min_element, heap[i])
+
+    return min_element
 
 
 def _bubble_up_min(heap, sub_tree_boundary, idx):

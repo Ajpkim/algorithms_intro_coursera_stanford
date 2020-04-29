@@ -1,1 +1,2 @@
-from p2_graphs_datastructures.algorithms import *
+from p2_graphs_datastructures.algorithms.median_maintainence import median_maintainence
+
